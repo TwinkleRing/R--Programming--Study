@@ -1,9 +1,0 @@
-crt_download            corretto installer download
-crt_unc                 uncompress corretto source
-install_conda           Install conda
-install_java            install 'java'
-java_available          java available check
-java_home_check         java home check
-node_download           nodejs installer download
-rs_download             rust installer download
-rustup_windows          Install Rust

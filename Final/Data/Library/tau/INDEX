@@ -1,7 +1,0 @@
-is.utf8                 Adapt the (Declared) Encoding of a Character
-                        Vector
-readBytes               Read Byte or Character Strings
-textcnt                 Term or Pattern Counting of Text Documents
-tokenize                Preprocessing of Text Documents
-translate_Unicode_latin_ligatures
-                        Translate Unicode Latin Ligatures
