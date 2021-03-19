@@ -1,0 +1,274 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html xmlns="http://www.w3.org/1999/xhtml"><head><title>R: buildDictionary</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<link rel="stylesheet" type="text/css" href="R.css" />
+</head><body>
+
+<table width="100%" summary="page for buildDictionary {KoNLP}"><tr><td>buildDictionary {KoNLP}</td><td style="text-align: right;">R Documentation</td></tr></table>
+
+<h2>buildDictionary</h2>
+
+<h3>Description</h3>
+
+<p>buildDictionary
+</p>
+
+
+<h3>Usage</h3>
+
+<pre>
+buildDictionary(ext_dic = "woorimalsam", category_dic_nms = "",
+  user_dic = data.frame(), replace_usr_dic = F, verbose = F)
+</pre>
+
+
+<h3>Arguments</h3>
+
+<table summary="R argblock">
+<tr valign="top"><td><code>ext_dic</code></td>
+<td>
+<p>external dictionary character name which can be 'woorimalsam', 'insighter', 'sejong'.</p>
+</td></tr>
+<tr valign="top"><td><code>category_dic_nms</code></td>
+<td>
+<p>character vectors. category dictionary will be used. 'all' means all categories will be added.
+</p>
+
+<ul>
+<li><p> all 
+</p>
+</li>
+<li><p> general
+</p>
+</li>
+<li><p> chemical
+</p>
+</li>
+<li><p> language
+</p>
+</li>
+<li><p> music
+</p>
+</li>
+<li><p> history
+</p>
+</li>
+<li><p> education
+</p>
+</li>
+<li><p> society in general
+</p>
+</li>
+<li><p> life
+</p>
+</li>
+<li><p> physical
+</p>
+</li>
+<li><p> information and communication
+</p>
+</li>
+<li><p> medicine
+</p>
+</li>
+<li><p> earth
+</p>
+</li>
+<li><p> construction
+</p>
+</li>
+<li><p> veterinary science
+</p>
+</li>
+<li><p> business
+</p>
+</li>
+<li><p> law
+</p>
+</li>
+<li><p> plant
+</p>
+</li>
+<li><p> buddhism
+</p>
+</li>
+<li><p> engineering general
+</p>
+</li>
+<li><p> folk
+</p>
+</li>
+<li><p> administration
+</p>
+</li>
+<li><p> economic
+</p>
+</li>
+<li><p> math
+</p>
+</li>
+<li><p> korean medicine
+</p>
+</li>
+<li><p> military
+</p>
+</li>
+<li><p> literature
+</p>
+</li>
+<li><p> clothes
+</p>
+</li>
+<li><p> religion normal
+</p>
+</li>
+<li><p> animal
+</p>
+</li>
+<li><p> agriculture
+</p>
+</li>
+<li><p> astronomy
+</p>
+</li>
+<li><p> transport
+</p>
+</li>
+<li><p> natural plain
+</p>
+</li>
+<li><p> industry
+</p>
+</li>
+<li><p> medium
+</p>
+</li>
+<li><p> political
+</p>
+</li>
+<li><p> geography
+</p>
+</li>
+<li><p> mining
+</p>
+</li>
+<li><p> hearing
+</p>
+</li>
+<li><p> fishing
+</p>
+</li>
+<li><p> machinery
+</p>
+</li>
+<li><p> catholic
+</p>
+</li>
+<li><p> book title
+</p>
+</li>
+<li><p> named
+</p>
+</li>
+<li><p> electrical and electronic
+</p>
+</li>
+<li><p> pharmacy
+</p>
+</li>
+<li><p> art, music and physical
+</p>
+</li>
+<li><p> useless
+</p>
+</li>
+<li><p> ocean
+</p>
+</li>
+<li><p> forestry
+</p>
+</li>
+<li><p> christian
+</p>
+</li>
+<li><p> craft
+</p>
+</li>
+<li><p> service
+</p>
+</li>
+<li><p> sports
+</p>
+</li>
+<li><p> food
+</p>
+</li>
+<li><p> art
+</p>
+</li>
+<li><p> environment
+</p>
+</li>
+<li><p> video
+</p>
+</li>
+<li><p> natural resources
+</p>
+</li>
+<li><p> industry general
+</p>
+</li>
+<li><p> smoke
+</p>
+</li>
+<li><p> philosophy
+</p>
+</li>
+<li><p> health general
+</p>
+</li>
+<li><p> proper names general
+</p>
+</li>
+<li><p> welfare
+</p>
+</li>
+<li><p> material
+</p>
+</li>
+<li><p> humanities general
+</p>
+</li></ul>
+</td></tr>
+<tr valign="top"><td><code>user_dic</code></td>
+<td>
+<p><code>data.frame</code> which include 'word' and 'tag(KAIST)' fields. User can add more user defined terms and tags.</p>
+</td></tr>
+<tr valign="top"><td><code>replace_usr_dic</code></td>
+<td>
+<p>A logical scala. Should user dictionary needs to be replaced with new user defined dictionary or appended.</p>
+</td></tr>
+<tr valign="top"><td><code>verbose</code></td>
+<td>
+<p>will print detail progress. default <code>FALSE</code></p>
+</td></tr>
+</table>
+
+
+<h3>Examples</h3>
+
+<pre>
+## Not run: 
+dics &lt;- c('sejong','woorimalsam')
+category &lt;- c('sports')
+user_d &lt;- data.frame(term="apple", tag='ncn')
+buildDictionary(ext_dic = dics,category_dic_nms = category, user_dic = user_d, replace_usr_dic=F)
+#accumulate user dictionary only
+buildDictionary(ext_dic= "", user_dic = user_d, replace_usr_dic=F)
+#get user dictionary as data.frame
+usr_words  &lt;- get_dictionary('user_dic')
+
+## End(Not run)
+</pre>
+
+<hr /><div style="text-align: center;">[Package <em>KoNLP</em> version 0.80.2 <a href="00Index.html">Index</a>]</div>
+</body></html>

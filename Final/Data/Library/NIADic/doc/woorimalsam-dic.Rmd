@@ -1,0 +1,58 @@
+---
+title: "우리말샘 사전 현황"
+author: "전희원(Heewon Jeon)"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    fig_width: 6
+    fig_height: 8.5
+vignette: >
+  %\VignetteIndexEntry{Woorimalsam Dictionary}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+
+
+## 우리말샘 사전 
+
+- [국립국어원](http://www.korean.go.kr/)에서 제공한 공개사전 
+
+## 사전 현황 
+
+```{r,echo=F,message=FALSE}
+library(ggplot2)
+library(NIADic)
+library(data.table)
+library(scales)
+
+total_dt <- data.table(get_dic("woorimalsam"))
+```
+
+
+- 제공받은 시점과 KoNLP 사용 목적에 따라 국립국어원에서 제공하는 [사전통계](http://opendict.korean.go.kr/service/dicStat)와 다소 상이할 수 있음.
+- 전체 `r format(nrow(total_dt), big.mark=',')`개의 단어, `r nrow(total_dt[,.N,category])`개의 단어 카테고리 존재 
+
+### 품사/카테고리별 통계량  
+
+```{r,echo=FALSE}
+
+
+ggplot(total_dt[,.N,.(tag)], aes(x=reorder(tag, N), N)) +geom_bar(stat='identity') + xlab("KAIST tag") + coord_flip() + ggtitle("Tag frequency") + scale_y_continuous(labels = comma)
+
+
+knitr::kable(total_dt[,.N,category][order(-N)])
+
+ggplot(total_dt[,.N,category], aes(x=reorder(category, N), N)) +geom_bar(stat='identity') + xlab("category") + coord_flip() + ggtitle("category frequency") +  scale_y_continuous(labels = comma)
+```
+
+
+### 카테고리 단어 예시(법률, 의학) 
+
+
+```{r, echo=FALSE}
+knitr::kable(total_dt[category %chin% '법률'][sample(nrow(total_dt[category %chin% '법률']), 10)], caption="법률용어 예시")
+
+knitr::kable(total_dt[category %chin% '의학'][sample(nrow(total_dt[category %chin% '의학']), 10)],  caption="의학용어 예시")
+
+```

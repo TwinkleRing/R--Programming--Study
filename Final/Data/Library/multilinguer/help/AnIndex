@@ -1,0 +1,13 @@
+multilinguer-package	multilinguer-package
+crt_download	crt_download
+crt_unc	crt_unc
+install_conda	install_conda
+install_java	install_java
+install_jdk	install_java
+java_available	java_available
+java_home_check	java_home_check
+multilinguer	multilinguer-package
+node_download	node_download
+rs_download	rs_download
+rustup_windows	rustup
+rust_uninstall	rustup

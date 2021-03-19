@@ -1,0 +1,8 @@
+useDynLib("tau", .registration = TRUE)
+export("remove_stopwords",
+       "textcnt",
+       "is.ascii", "is.utf8", "is.locale", "translate", "fixEncoding",
+       "readBytes", "readChars",
+       "tokenize",
+       "translate_Unicode_latin_ligatures")
+S3method("format", "textcnt")
